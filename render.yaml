@@ -1,10 +1,10 @@
 services:
   - type: web
     name: bot-telegram-php
-    env: docker # Cambia el entorno a docker ya que ahora lo estamos usando
+    env: docker
     region: oregon
-    buildContext: . # Indica el directorio de construcción (la raíz del repositorio)
-    dockerfilePath: Dockerfile # Especifica la ruta al Dockerfile
+    buildContext: .
+    dockerfilePath: Dockerfile
     ports:
       - port: 80
         targetPort: 80
