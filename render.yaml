@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: bot_telegram2 # Cambia el nombre si lo deseas
+    env: php
+    region: oregon # Elige la región que prefieras
+    buildCommand: # Si usas Composer para alguna dependencia
+    startCommand: php -S 0.0.0.0:$PORT bot.php
+    routes:
+      - path: /
+        target: /
