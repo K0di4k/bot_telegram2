@@ -1,10 +1,13 @@
 services:
   - type: web
-    name: bot-telegram-php # Cambia el nombre si lo deseas
-    env: php
-    region: oregon # Elige la región que prefieras
-    buildCommand: composer install # Si usas Composer para alguna dependencia
-    startCommand: php -S 0.0.0.0:$PORT bot.php
+    name: bot-telegram-php
+    env: docker # Cambia el entorno a docker ya que ahora lo estamos usando
+    region: oregon
+    buildContext: . # Indica el directorio de construcción (la raíz del repositorio)
+    dockerfilePath: Dockerfile # Especifica la ruta al Dockerfile
+    ports:
+      - port: 80
+        targetPort: 80
     routes:
       - path: /
         target: /
