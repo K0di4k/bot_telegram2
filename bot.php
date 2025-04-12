@@ -1,31 +1,14 @@
 <?php
 
-// ----------------------------------------------------------------------------
-// Configuración básica
-// ----------------------------------------------------------------------------
-
-$token = getenv('BOT_TOKEN'); // Obtener el token de una variable de entorno
+$token = getenv('BOT_TOKEN');
 $website = 'https://api.telegram.org/bot' . $token;
-
-// ----------------------------------------------------------------------------
-// Obtener y decodificar la información del webhook
-// ----------------------------------------------------------------------------
 
 $input = file_get_contents('php://input');
 $update = json_decode($input, TRUE);
 
-// ----------------------------------------------------------------------------
-// Extraer información relevante del mensaje (si existe)
-// ----------------------------------------------------------------------------
-
 if (isset($update['message'])) {
     $chatId = $update['message']['chat']['id'];
     $message = $update['message']['text'];
-
-    // ------------------------------------------------------------------------
-    // Lógica de respuesta basada en el mensaje recibido
-    // ------------------------------------------------------------------------
-
     switch ($message) {
         case '/start':
             $responseText = '¡Me has iniciado desde PHP en Render!';
@@ -35,8 +18,8 @@ if (isset($update['message'])) {
                 'one_time_keyboard' => true
             ];
             $replyMarkup = json_encode($keyboard);
-            send_message($chatId, $responseText, 'Markdown', $replyMarkup); // Llamamos a send_message con el teclado
-            exit; // Importante para no enviar la respuesta por defecto
+            send_message($chatId, $responseText, 'Markdown', $replyMarkup);
+            exit;
             break;
 
         case 'info':
@@ -65,10 +48,6 @@ if (isset($update['message'])) {
             break;
     }
 }
-
-// ------------------------------------------------------------------------
-// Función para enviar el mensaje de respuesta a Telegram
-// ------------------------------------------------------------------------
 
 function send_message($chat_id, $response_text, $parse_mode = 'Markdown', $reply_markup = null) {
     global $website;
