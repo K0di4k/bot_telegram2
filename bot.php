@@ -11,7 +11,7 @@ if (isset($update['message'])) {
     $message = $update['message']['text'];
     switch ($message) {
         case '/start':
-            $responseText = '¡Me has iniciado desde PHP en Render!';
+            $responseText = '¡Bot ha sido iniciado con exito, ¿En que puedo ayudarte?!';
             $keyboard = [
                 'keyboard' => [['info'], ['Hola!', 'que haces?'], ['como crees que te ira en la sumativa:']],
                 'resize_keyboard' => true,
@@ -23,22 +23,12 @@ if (isset($update['message'])) {
             break;
 
         case 'info':
-            $response = '*Información del bot PHP en Render*\nEste es un bot de prueba.';
+            $response = 'Bot creado en PHP y montado en el servidor Render';
             send_message($chatId, $response);
             break;
 
         case 'Hola!':
             $response = '¡Hola, soy el Bot creado por Jaime, Brissa y Valeria!';
-            send_message($chatId, $response);
-            break;
-
-        case 'que haces?':
-            $response = '_Estoy corriendo en Render y listo para automatizar!_';
-            send_message($chatId, $response);
-            break;
-
-        case 'como crees que te ira en la sumativa:':
-            $response = 'Con *PHP* y en `Render`, ¡seguro que super bien!';
             send_message($chatId, $response);
             break;
 
