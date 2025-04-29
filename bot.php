@@ -13,7 +13,7 @@ if (isset($update['message'])) {
         case '/start':
             $responseText = '¡Bot ha sido iniciado con exito, ¿En que puedo ayudarte?!';
             $keyboard = [
-                'keyboard' => [['info'], ['Hola!', 'que haces?'], ['como crees que te ira en la sumativa:']],
+                'keyboard' => [['info', 'Hola!']],
                 'resize_keyboard' => true,
                 'one_time_keyboard' => true
             ];
