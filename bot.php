@@ -23,12 +23,12 @@ if (isset($update['message'])) {
             break;
 
         case 'info':
-            $response = 'Bot creado en PHP y montado en el servidor Render';
+            $response = 'Bot creado en PHP y montado en el servidor Render por: Jaime A. Galaz, Brissa M. Asis y Valeria A. Chiquito';
             send_message($chatId, $response);
             break;
 
         case 'Hola!':
-            $response = '¡Hola, soy el Bot creado por Jaime, Brissa y Valeria!';
+            $response = '¡Hola, ¿En que puedo ayudarte?';
             send_message($chatId, $response);
             break;
 
